@@ -18,11 +18,18 @@ Common causes:
 ## I only see a spinning throbber instead of my widget
 The plugin could not load the **Loading Screen Widget** set in Project Settings, and falls back to a throbber. Check that the widget is set and that it is included in your packaged build. The log shows `Failed to load the loading screen widget`.
 
+## My widget freezes while the map loads
+Loading a map blocks the game thread, so the widget can't animate. Turn on **Use Movie Player During Load Map** in Project Settings to keep it animating. See [Keeping the widget animated](/docfiles/concepts/how-it-works#keeping-the-widget-animated-while-a-map-loads).
+
+## Can I use the console while the loading screen is shown?
+Yes, in all builds except Shipping. The console keys are not blocked, and neither is typing while the console is open. The console may be drawn behind the widget, but the commands still run.
+
 ## The loading screen behaves differently in the editor
 The loading screen works in PIE, with a few differences:
 - The extra hold time only applies when **Show Loading Screen Additional Secs Even in Editor** is on. It is on by default.
 - Input is not blocked while the loading screen is shown.
 - The splash screen is never shown. Test it in a packaged or standalone game.
+- **Use Movie Player During Load Map** has no effect.
 
 ## The splash screen does not show
 - Check that **Disable Splash Loading Screen** is off.

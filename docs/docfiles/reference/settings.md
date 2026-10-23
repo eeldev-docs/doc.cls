@@ -19,11 +19,12 @@ The settings are in **Edit → Project Settings → Plugins → Common Loading S
 |---|---|---|
 | Disable Splash Loading Screen | Off | Turns off the splash screen. |
 | Force Tick Loading Screen Even in Editor | On | Ticks Slate once when the loading screen is shown in the editor, so it is drawn right away. |
+| Use Movie Player During Load Map | Off | Shows the widget with the Movie Player while a map loads, so it keeps animating. See [Keeping the widget animated](/docfiles/concepts/how-it-works#keeping-the-widget-animated-while-a-map-loads). |
 | Show Loading Screen Additional Secs | `2.0` | Seconds to keep the loading screen up after loading has finished, so texture streaming can catch up. |
 | Show Splash Screen Additional Secs | `2.0` | Seconds to keep the splash screen up after the engine has finished loading. |
 | Loading Screen Heartbeat Hang Duration | `0.0` | Seconds the loading screen can be up before the game is considered hung. `0` turns it off. |
 | Log Loading Screen Heartbeat Interval | `5.0` | Seconds between each log of what is keeping the loading screen up. `0` turns it off. |
-| Blocked Map Names | Empty | Maps that never show a loading screen when loaded, for example `MainMenu`. Use the map's asset name, not the full path. |
+| Blocked Map Names | Empty | Maps that never show a loading screen when loaded or travelled to, also with seamless travel, for example `MainMenu`. Use the map's asset name, not the full path. |
 
 ## Splash Screen Configuration
 These settings are shown for the matching **Splash Screen Type**.
