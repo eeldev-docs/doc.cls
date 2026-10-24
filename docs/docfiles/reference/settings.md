@@ -12,7 +12,7 @@ The settings are in **Edit → Project Settings → Plugins → Common Loading S
 |---|---|---|
 | Loading Screen Widget | None | The UMG widget shown as the loading screen. A throbber is shown if it can't be loaded. |
 | Loading Screen ZOrder | `10000` | The Z order of the widget in the viewport. Keep it higher than your other widgets. |
-| Splash Screen Type | `BLACK` | The [splash screen](/docfiles/concepts/splash-screen) on startup: `BLACK`, `LOADING` or `IMAGE`. |
+| Splash Screen Type | `BLACK` | The [splash screen](/docfiles/concepts/splash-screen) on startup: `BLACK`, `LOADING`, `IMAGE` or `VIDEO`. |
 
 ## Configuration
 | Setting | Default | Description |
@@ -36,6 +36,25 @@ These settings are shown for the matching **Splash Screen Type**.
 | Splash Screen Stretch Direction | `IMAGE` | `Both` | Whether the image may be scaled up, down or both. |
 | Splash Screen Loading Text | `LOADING` | `LOADING...` | The text to show. |
 | Splash Screen Loading Font | `LOADING` | Regular, size 10 | The font of the text. |
+| Splash Screen Movies | `VIDEO` | Empty | The movies to play on startup. See [Adding movies](#adding-movies). |
+| Splash Screen Movie Playback Type | `VIDEO` | `Normal Playback` | `Normal Playback` plays the movies once, `Looped Playback` loops all of them and `Looped Last Playback` loops the last one. |
+| Splash Screen Movies Are Skippable | `VIDEO` | On | The player can skip the movies with a key or mouse click. |
+| Wait For Splash Screen Movies To Complete | `VIDEO` | On | Plays the movies to the end. When off, they stop as soon as the engine has finished loading. |
+
+## Loading Screen Movies
+| Setting | Default | Description |
+|---|---|---|
+| Loading Screen Movies | Empty | The movies to play while a map loads. See [Adding movies](#adding-movies). |
+| Loading Screen Movie Playback Type | `Looped Last Playback` | `Normal Playback` plays the movies once, `Looped Playback` loops all of them and `Looped Last Playback` loops the last one. |
+| Loading Screen Movies Are Skippable | Off | The player can skip the movies with a key or mouse click. |
+| Wait For Loading Screen Movies To Complete | Off | Plays the movies to the end. When off, they stop as soon as the map has loaded. |
+| Show Loading Screen Widget Over Movies | Off | Draws the **Loading Screen Widget** on top of the movies. |
+
+### Adding movies
+- Put the movie files in `/Content/Movies` in your project, for example `Content/Movies/MyMovie.mp4`.
+- Enter only the file name, without the path or extension. For `Content/Movies/MyMovie.mp4` you enter `MyMovie`.
+- A movie that can't be found is skipped and a warning is logged.
+- Movies are not packaged as assets. Make sure they are copied to the packaged build: turn off **Skip Movies** and add the names to **Movies that are not in UFS** under **Project Settings → Packaging**. With **Use Zen Store** on, the movies end up in the pak file and the Movie Player can't open them.
 
 ## Debugging
 | Setting | Default | Description |
