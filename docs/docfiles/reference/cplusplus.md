@@ -68,6 +68,17 @@ Task->Unregister();
 
 The manager keeps the task alive until `Unregister` is called.
 
+## Report loading progress
+Call `Task->SetProgress(0.5f)` on a task, or override `GetLoadingProgress` in `ILoadingProcessInterface`. Read the total with `ULoadingScreenManager::GetLoadingProgress()`. See [Loading Progress](/docfiles/getting_started/progress).
+
+```cpp
+virtual bool GetLoadingProgress(float& OutProgress) const override
+{
+	OutProgress = static_cast<float>(NumLoaded) / NumToLoad;
+	return true;
+}
+```
+
 ## React to the loading screen
 ```cpp
 if (ULoadingScreenManager* Manager = ULoadingScreenManager::Get(this))
@@ -90,6 +101,7 @@ void AMyActor::HandleLoadingScreenVisibilityChanged(bool bIsVisible)
 | `void RemoveLoadingScreenWatcher(UObject*)` | Removes a Watcher. |
 | `void SetCustomLoadingScreenText(FString)` | Sets the custom text. |
 | `bool GetLoadingScreenDisplayStatus() const` | True while the loading screen is shown. |
+| `float GetLoadingProgress() const` | How far the loading has come, from `0` to `1`, or `-1` if nothing reports progress. |
 | `FString GetDebugReasonForShowingOrHidingLoadingScreen() const` | The current reason. |
 | `FString GetLoadingScreenCustomText() const` | The custom text. |
 | `FString GetCurrentLoadingMap() const` | The map that is loading, or was loaded last. |

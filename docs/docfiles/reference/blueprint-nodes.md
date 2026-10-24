@@ -12,6 +12,7 @@ Get it with the **Loading Screen Manager** node, which is a Game Instance Subsys
 | Node | Description |
 |---|---|
 | Get Loading Screen Display Status | True while the loading screen is shown. |
+| Get Loading Progress | How far the loading has come, from `0` to `1`, or `-1` if nothing reports progress. See [Loading Progress](/docfiles/getting_started/progress). |
 | Get Debug Reason for Showing or Hiding Loading Screen | Why the loading screen is shown or hidden. See [Displaying Reason](/docfiles/getting_started/reason). |
 | Get Loading Screen Custom Text | The text set with **Set Loading Screen Custom Text**. |
 | Get Current Loading Map | The name of the map that is loading, or was loaded last. |
@@ -38,6 +39,7 @@ Shows the loading screen on demand. See [Show on Demand](/docfiles/getting_start
 | Create Loading Screen Process Task | Creates a task and shows the loading screen with the given reason. Returns the task. |
 | Unregister | Removes the task, so it no longer keeps the loading screen up. |
 | Set Show Loading Screen Reason | Changes the reason of the task. |
+| Set Progress | Reports how far the task has come, from `0` to `1`. See [Loading Progress](/docfiles/getting_started/progress). |
 
 ## Loading Process Interface
 Implement it on the Game State, a Player Controller, one of their components or a [Watcher](/docfiles/getting_started/watchers).
@@ -45,3 +47,4 @@ Implement it on the Game State, a Player Controller, one of their components or 
 | Function | Description |
 |---|---|
 | Should Show Loading Screen | Return true to show the loading screen. Set **Out Debug Reason** to say why. |
+| Get Loading Progress | Return true and set **Out Progress** to a value from `0` to `1` to report progress. Return false to not be counted. |
