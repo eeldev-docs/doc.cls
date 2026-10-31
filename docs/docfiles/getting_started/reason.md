@@ -24,3 +24,5 @@ The reason that you set in **Should Show Loading Screen** can be displayed in yo
 
 ## Custom Text
 To show your own text instead, call **Set Loading Screen Custom Text** from anywhere, and read it in the widget with **Get Loading Screen Custom Text**. The plugin never changes the custom text itself.
+
+For text that should be translated, use **Set Loading Screen Custom Display Text** and **Get Loading Screen Custom Display Text**, which take and return a localizable text. Both pairs set and read the same text.

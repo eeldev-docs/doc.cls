@@ -11,7 +11,8 @@ Something is still asking for it. Turn on **Log Loading Screen Reason Every Fram
 
 Common causes:
 - A **Should Show Loading Screen** function that still returns true.
-- A task from **Create Loading Screen Process Task** that was never unregistered. The task keeps the loading screen up until you call **Unregister** on it.
+- A task from **Create Loading Screen Process Task** that was never unregistered. The task keeps the loading screen up until you call **Unregister** on it. Set **Timeout Seconds** or **Unregister With Context Object** on the node to make it stop by itself, see [Show on Demand](/docfiles/getting_started/on-demand#making-the-task-stop-by-itself).
+- **Minimum Loading Screen Display Time** or **Show Loading Screen Additional Secs** is set high.
 - **Force Loading Screen Visible** is on in Project Settings.
 - No local Player Controller exists yet. The loading screen stays up until at least one does, or until all of them do in split screen.
 
@@ -37,7 +38,16 @@ The loading screen works in PIE, with a few differences:
 - With the **IMAGE** type, check that the image is a Texture 2D. The plugin's default image is used if none is set.
 
 ## The loading screen shows on my main menu
-Add the map name to **Blocked Map Names** in Project Settings. Use the map's asset name, for example `MainMenu`, not the full path.
+Add the map to **Blocked Maps** in Project Settings, or add its name to **Blocked Map Names**. In **Blocked Map Names**, use the map's asset name, for example `MainMenu`, not the full path.
+
+## Can I use a different loading screen for a specific map?
+Yes. Add the map to **Map Overrides** in Project Settings and set the widget, the movies or both. See [Map Overrides](/docfiles/reference/settings#map-overrides).
+
+## The loading screen flickers on short loads
+Set **Minimum Loading Screen Display Time** so the loading screen stays up for a while once shown, and **Loading Screen Fade Out Duration** to fade it out smoothly.
+
+## I get a warning about a legacy config section
+Your `DefaultGame.ini` still has settings under `[/Script/CommonLoadingScreen.CommonLoadingScreenSettings]` from an older version. Move them to `[/Script/CommonLoadingSettings.CommonLoadingScreenSettings]` and remove the old section. See [Upgrading from older versions](/docfiles/reference/settings#upgrading-from-older-versions).
 
 ## Can I skip the loading screen while testing?
 Start the game with `-NoLoadingScreen` on the command line. This works in all builds except Shipping.

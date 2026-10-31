@@ -18,8 +18,11 @@ The plugin shows a loading screen automatically while the game is loading, and k
 - **Keep the loading screen up from your own code** by implementing the Loading Process Interface on the Game State, Player Controller, their components or any [Watcher](/docfiles/getting_started/watchers).
 - **Show it on demand** from any Blueprint with a world context. See [Show on Demand](/docfiles/getting_started/on-demand).
 - **A reason for every loading screen**, which you can show in the widget or print to the log. See [Displaying Reason](/docfiles/getting_started/reason).
-- **Extra hold time** after loading finishes, so texture streaming can catch up before the world becomes visible.
+- **Extra hold time** after loading finishes, so texture streaming can catch up before the world becomes visible, and a **minimum display time** so short loads don't flicker.
+- **Fade out** of the widget when the loading screen is hidden. See [Fading out](/docfiles/concepts/how-it-works#fading-out).
+- **A different widget or movies per map** with Map Overrides. See [Map Overrides](/docfiles/reference/settings#map-overrides).
 - **Blocked maps** that never show a loading screen, such as a main menu level, also with seamless travel.
+- **Loading progress** for progress bars, with an event when it changes. See [Loading Progress](/docfiles/getting_started/progress).
 - **An animated widget while a map loads**, drawn by the Movie Player. See [Keeping the widget animated](/docfiles/concepts/how-it-works#keeping-the-widget-animated-while-a-map-loads).
 - Input is blocked while the loading screen is shown. The console still works in builds other than Shipping.
 

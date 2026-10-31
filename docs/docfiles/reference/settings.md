@@ -12,6 +12,7 @@ The settings are in **Edit → Project Settings → Plugins → Common Loading S
 |---|---|---|
 | Loading Screen Widget | None | The UMG widget shown as the loading screen. A throbber is shown if it can't be loaded. |
 | Loading Screen ZOrder | `10000` | The Z order of the widget in the viewport. Keep it higher than your other widgets. |
+| Loading Screen Fade Out Duration | `0.0` | Seconds the widget fades out when the loading screen is hidden. `0` removes it at once. See [Fading out](/docfiles/concepts/how-it-works#fading-out). |
 | Splash Screen Type | `BLACK` | The [splash screen](/docfiles/concepts/splash-screen) on startup: `BLACK`, `LOADING`, `IMAGE` or `VIDEO`. |
 
 ## Configuration
@@ -22,9 +23,22 @@ The settings are in **Edit → Project Settings → Plugins → Common Loading S
 | Use Movie Player During Load Map | Off | Shows the widget with the Movie Player while a map loads, so it keeps animating. See [Keeping the widget animated](/docfiles/concepts/how-it-works#keeping-the-widget-animated-while-a-map-loads). |
 | Show Loading Screen Additional Secs | `2.0` | Seconds to keep the loading screen up after loading has finished, so texture streaming can catch up. |
 | Show Splash Screen Additional Secs | `2.0` | Seconds to keep the splash screen up after the engine has finished loading. |
+| Minimum Loading Screen Display Time | `0.0` | The shortest time the loading screen stays up once it is shown, so short loads don't flicker. `0` turns it off. |
 | Loading Screen Heartbeat Hang Duration | `0.0` | Seconds the loading screen can be up before the game is considered hung. `0` turns it off. |
 | Log Loading Screen Heartbeat Interval | `5.0` | Seconds between each log of what is keeping the loading screen up. `0` turns it off. |
 | Blocked Map Names | Empty | Maps that never show a loading screen when loaded or travelled to, also with seamless travel, for example `MainMenu`. Use the map's asset name, not the full path. |
+| Blocked Maps | Empty | Same as **Blocked Map Names**, but you pick the maps from a list instead of typing their names. Both lists are used. |
+
+## Map Overrides
+Use a different widget or different movies while a specific map loads. Add one entry per map.
+
+| Field | Description |
+|---|---|
+| Map | The map the override is for. |
+| Loading Screen Widget | The widget to show while this map loads. Leave it empty to use the default **Loading Screen Widget**. |
+| Loading Screen Movies | The movies to play while this map loads. Leave it empty to use the default **Loading Screen Movies**. |
+
+The override is picked when the loading screen is shown, from the map that is being loaded or travelled to. A loading screen that is already up when the load starts keeps its widget. The first loading screen when the game starts always uses the default widget.
 
 ## Splash Screen Configuration
 These settings are shown for the matching **Splash Screen Type**.
@@ -79,4 +93,4 @@ Four settings have a console variable, so you can change them at runtime. The Pr
 | `-NoLoadingScreen` | Never shows the loading screen. Not available in Shipping builds. |
 
 ## Upgrading from older versions
-Older versions saved the settings under `[/Script/CommonLoadingScreen.CommonLoadingScreenSettings]`. The plugin reads the old section on startup, copies values that are missing from the new section, and logs a warning. Move the values to the new section and remove the old one to get rid of the warning.
+Older versions saved the settings under `[/Script/CommonLoadingScreen.CommonLoadingScreenSettings]`. The plugin reads the old section on startup and copies values that are missing from the new section. It logs a warning when it copies anything. Move the values to the new section and remove the old one to get rid of the warning. When the new section already has every value, the old section is ignored and only a normal log line says that it can be removed.

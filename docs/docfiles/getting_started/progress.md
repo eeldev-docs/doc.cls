@@ -18,6 +18,9 @@ Call **Get Loading Progress** on the Loading Screen Manager, for example in a bi
 
 When several objects report progress, the total is their average.
 
+## Reacting to changes
+Instead of reading the value every frame, bind **On Loading Progress Changed** on the Loading Screen Manager. It fires with the new value each time the progress changes, also when it is set to `1` and back to `-1`.
+
 ## Reporting progress from a task
 Call **Set Progress** on a [Loading Process Task](/docfiles/getting_started/on-demand) while it works. A task that never calls **Set Progress** is not counted.
 

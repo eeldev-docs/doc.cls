@@ -19,6 +19,10 @@ You configure the plugin in **Edit → Project Settings → Plugins → Common L
 
   This number should be higher than your other widgets, so the loading screen stays on top of them.
 
+- **Loading Screen Fade Out Duration**
+
+  How many seconds the widget fades out when the loading screen is hidden. `0` removes it at once.
+
 - **Splash Screen Type**
 
   The splash screen shown on game startup: `BLACK`, `LOADING` or `IMAGE`. See [Splash Screen](/docfiles/concepts/splash-screen).
@@ -40,6 +44,10 @@ You configure the plugin in **Edit → Project Settings → Plugins → Common L
 
   The splash screen is displayed for this many extra seconds on game startup.
 
+- **Minimum Loading Screen Display Time**
+
+  Once shown, the loading screen stays up for at least this many seconds, so short loads don't flicker.
+
 - **Loading Screen Heartbeat Hang Duration**
 
   Detects if the loading screen has hung or frozen.
@@ -50,7 +58,16 @@ You configure the plugin in **Edit → Project Settings → Plugins → Common L
 
 - **Blocked Map Names**
 
-  Maps that never show a loading screen when they are loaded.
+  Maps that never show a loading screen when they are loaded, by name.
+
+- **Blocked Maps**
+
+  The same as **Blocked Map Names**, but you pick the maps from a list.
+
+### Map Overrides
+- **Map Overrides**
+
+  A different widget or different movies for specific maps. See [Map Overrides](/docfiles/reference/settings#map-overrides).
 
 ### Debugging
 - **Log Loading Screen Reason Every Frame**
