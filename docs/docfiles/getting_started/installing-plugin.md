@@ -48,7 +48,5 @@ If you call the plugin from C++, add the `CommonLoadingScreen` module to your mo
 PrivateDependencyModuleNames.AddRange(new string[] { "CommonLoadingScreen" });
 ```
 
-See [C++ API](/docfiles/reference/cplusplus) for examples.
-
 ## Next step
 [Configure the plugin](/docfiles/getting_started/configuring-plugin).
