@@ -27,6 +27,8 @@ To show your own text instead, call **Set Loading Screen Custom Text** from anyw
 
 For text that should be translated, use **Set Loading Screen Custom Display Text** and **Get Loading Screen Custom Display Text**, which take and return a localizable text. Both pairs set and read the same text.
 
+![Setting and reading the custom text](/img/bp-custom-text.png)
+
 ## Status Text
 The reason is meant for developers. To tell the player what is happening, read **Get Loading Screen Status Text** on the Loading Screen Manager in your widget, or bind **On Loading Screen Status Text Changed**. The [built-in loading screen](/docfiles/getting_started/built-in-loading-screen) shows it automatically.
 

@@ -18,6 +18,10 @@ Call **Get Loading Progress** on the Loading Screen Manager, for example in a bi
 
 When several objects report progress, the total is their average.
 
+This example hides the Progress Bar while nothing reports progress. Call it from your widget, for example on **Event Tick**.
+
+![Updating a Progress Bar and hiding it when nothing reports progress](/img/bp-progress-bar.webp)
+
 ## Automatic progress
 Turn on **Automatic Progress** in Project Settings to get a progress value without any code when a map is loaded. It is made up of three parts:
 

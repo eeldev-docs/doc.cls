@@ -73,6 +73,10 @@ Add entries to **Map Overrides** to use another widget, movies, tips, images or 
 - **On Loading Screen Visibility Changed Delegate** fires with `true` when it is shown and `false` when it is hidden.
 - A garbage collection runs just before the loading screen is hidden.
 
+This example reacts when the loading screen is shown and hidden.
+
+![Reacting when the loading screen is shown and hidden](/img/bp-visibility-changed.png)
+
 ## Keeping the widget animated while a map loads
 Loading a map with **Open Level** blocks the game thread, so the widget stops animating until the map has loaded. Turn on **Use Movie Player During Load Map** to show the widget with Unreal's Movie Player during the load instead. The Movie Player draws it on its own thread, so animations keep playing.
 
@@ -90,6 +94,8 @@ The Loading Screen Manager also forwards these events, which you can bind in Blu
 | On Pre Load Map Triggered | A map starts loading. Gives the map name. |
 | On Post Load Map Triggered | The map has finished loading. |
 | On Seamless Travel Start | Seamless travel to a map starts. Gives the map name. |
+
+![Binding the map events](/img/bp-map-events.webp)
 
 ## Turning it off for testing
 Start the game with `-NoLoadingScreen` on the command line to never show the loading screen. This works in all builds except Shipping.
