@@ -26,6 +26,11 @@ Expand the advanced pins on **Create Loading Screen Process Task** to make sure 
 
 When a task expires, the plugin unregisters it and logs a warning with the reason of the task. Use **Is Expired** on the task to check it yourself.
 
+## Status text and progress
+This example sets a timeout of 30 seconds, reports a status text and progress on the task, and unregisters it when the work is done.
+
+![A task with a timeout, status text and progress](/img/bp-on-demand-task.webp)
+
 ## Updating Reason
 - You can update the loading screen reason at any time with **Set Show Loading Screen Reason** on the task.
 

@@ -10,51 +10,49 @@ You configure the plugin in **Edit → Project Settings → Plugins → Common L
 ## Project Settings
 ![Project Settings](/img/project-settings.png)
 
-### Display
+### Loading Screen
 - **Loading Screen Widget**
 
-  The widget that is displayed when switching maps, or when something tells the plugin to display the loading screen.
+  The widget that is displayed when switching maps, or when something tells the plugin to display the loading screen. Leave it empty to use the [built-in loading screen](/docfiles/getting_started/built-in-loading-screen).
 
-- **Loading Screen ZOrder**
+- **Z Order**
 
   This number should be higher than your other widgets, so the loading screen stays on top of them.
 
-- **Loading Screen Fade Out Duration**
+- **Automatic Progress**
 
-  How many seconds the widget fades out when the loading screen is hidden. `0` removes it at once.
+  Reports loading progress automatically when a map is loaded.
 
-- **Splash Screen Type**
-
-  The splash screen shown on game startup: `BLACK`, `LOADING` or `IMAGE`. See [Splash Screen](/docfiles/concepts/splash-screen).
-
-### Configuration
-- **Disable Splash Loading Screen**
-
-  Turns off the splash screen on game startup.
-
-- **Force Tick Loading Screen Even in Editor**
-
-  Lets the loading screen tick also when running in the editor.
-
-- **Show Loading Screen Additional Secs**
+### Timing
+- **Additional Hold Time**
 
   Even after the loading screen has "finished", it continues to display for this many seconds.
 
-- **Show Splash Screen Additional Secs**
-
-  The splash screen is displayed for this many extra seconds on game startup.
-
-- **Minimum Loading Screen Display Time**
+- **Minimum Display Time**
 
   Once shown, the loading screen stays up for at least this many seconds, so short loads don't flicker.
 
-- **Loading Screen Heartbeat Hang Duration**
+- **Fade In Duration** and **Fade Out Duration**
 
-  Detects if the loading screen has hung or frozen.
+  How many seconds the widget fades in when the loading screen is shown, and fades out when it is hidden.
 
-- **Log Loading Screen Heartbeat Interval**
+- **Wait For Key Press**
 
-  How often to log what is keeping the loading screen up.
+  Keeps the loading screen up after a map has loaded until the player presses a key.
+
+### Status Text
+The texts that tell the player what the game is doing. See [Status Text](/docfiles/getting_started/reason#status-text).
+
+### Built-in Loading Screen
+The layout, title, spinner, logo and colors of the [built-in loading screen](/docfiles/getting_started/built-in-loading-screen). These settings can only be edited when **Loading Screen Widget** is empty.
+
+### Content
+[Tips, images, music](/docfiles/getting_started/tips-slideshow-music) and [movies](/docfiles/reference/settings#movies).
+
+### Maps
+- **Map Overrides**
+
+  A different widget, movies, tips, images or music for specific maps. See [Map Overrides](/docfiles/reference/settings#map-overrides).
 
 - **Blocked Map Names**
 
@@ -64,23 +62,43 @@ You configure the plugin in **Edit → Project Settings → Plugins → Common L
 
   The same as **Blocked Map Names**, but you pick the maps from a list.
 
-### Map Overrides
-- **Map Overrides**
+### Splash Screen
+- **Disable Splash Screen**
 
-  A different widget or different movies for specific maps. See [Map Overrides](/docfiles/reference/settings#map-overrides).
+  Turns off the splash screen on game startup.
+
+- **Splash Screen Type**
+
+  The splash screen shown on game startup: `BLACK`, `LOADING`, `IMAGE` or `VIDEO`. See [Splash Screen](/docfiles/concepts/splash-screen).
+
+- **Splash Additional Hold Time**
+
+  The splash screen is displayed for this many extra seconds on game startup.
 
 ### Debugging
-- **Log Loading Screen Reason Every Frame**
+- **Log Reason Every Frame**
 
   Logs the reason why the loading screen is currently shown.
 
-- **Force Loading Screen Visible**
+- **Force Visible**
 
   Forces the loading screen to always show.
 
-- **Show Loading Screen Additional Secs Even in Editor**
+- **Hold Time Even in Editor**
 
   Shows the loading screen for the additional seconds also when running in the editor.
+
+- **Force Tick Even in Editor**
+
+  Lets the loading screen tick also when running in the editor.
+
+- **Heartbeat Hang Duration**
+
+  Detects if the loading screen has hung or frozen.
+
+- **Log Heartbeat Interval**
+
+  How often to log what is keeping the loading screen up.
 
 ## Next step
 [Create your loading screen widget](/docfiles/getting_started/using-plugin).

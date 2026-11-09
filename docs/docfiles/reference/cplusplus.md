@@ -122,6 +122,17 @@ void AMyActor::HandleLoadingScreenVisibilityChanged(bool bIsVisible)
 | `FString GetCurrentLoadingMap() const` | The map that is loading, or was loaded last. |
 | `bool IsLoadingScreenFadingOut() const` | True while the widget fades out after the loading screen was hidden. |
 | `FOnLoadingScreenVisibilityChangedDelegate& OnLoadingScreenVisibilityChangedDelegate()` | Native delegate for visibility changes. |
+| `FText GetCurrentLoadingScreenTip() const` | The tip to show. |
+| `FOnLoadingScreenTipChanged OnLoadingScreenTipChanged` | Dynamic delegate that is broadcast when a new tip is selected. |
+| `FText GetLoadingScreenStatusText() const` | The text to show the player. |
+| `FOnLoadingScreenStatusTextChanged OnLoadingScreenStatusTextChanged` | Dynamic delegate that is broadcast when the status text changes. |
+| `void SetLoadingScreenTips(const TArray<FText>&)` | Replaces the tips while the game runs. |
+| `void ClearLoadingScreenTips()` | Goes back to the tips from the settings. |
+| `void SetLoadingScreenImages(const TArray<UTexture2D*>&)` | Replaces the images from the next loading screen. |
+| `void ClearLoadingScreenImages()` | Goes back to the images from the settings. |
+| `bool IsWaitingForKeyPress() const` | True while the loading screen waits for a key press. |
+| `void ContinueFromLoadingScreen()` | Stops waiting for a key press. |
+| `FOnWaitingForKeyPressChanged OnWaitingForKeyPressChanged` | Dynamic delegate that is broadcast when the wait starts and stops. |
 | `FOnLoadingProgressChanged OnLoadingProgressChanged` | Dynamic delegate that is broadcast when the progress changes. |
 
 ## ULoadingProcessTask
@@ -132,6 +143,7 @@ void AMyActor::HandleLoadingScreenVisibilityChanged(bool bIsVisible)
 | `void SetShowLoadingScreenReason(const FString&)` | Changes the reason. |
 | `FString GetShowLoadingScreenReason() const` | The reason. |
 | `void SetProgress(float)` | Reports progress from `0` to `1`. |
+| `void SetStatusText(const FText&)` | Sets a text to show the player. |
 | `bool IsExpired() const` | True when the task has timed out, or its context object is gone. |
 
 ## Log category

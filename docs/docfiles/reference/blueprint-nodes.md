@@ -17,6 +17,14 @@ Get it with the **Loading Screen Manager** node, which is a Game Instance Subsys
 | Get Loading Screen Custom Text | The custom text as a string. |
 | Get Loading Screen Custom Display Text | The custom text as a localizable text. Pure node. |
 | Get Current Loading Map | The name of the map that is loading, or was loaded last. |
+| Get Current Loading Screen Tip | The tip to show. Pure node. See [Tips](/docfiles/getting_started/tips-slideshow-music#tips). |
+| Get Loading Screen Status Text | The text to show the player. Pure node. See [Status Text](/docfiles/getting_started/reason#status-text). |
+| Set Loading Screen Tips | Replaces the tips while the game runs. See [Changing tips and images](/docfiles/getting_started/tips-slideshow-music#changing-tips-and-images-while-the-game-runs). |
+| Clear Loading Screen Tips | Goes back to the tips from the settings. |
+| Set Loading Screen Images | Replaces the images from the next loading screen. |
+| Clear Loading Screen Images | Goes back to the images from the settings. |
+| Is Waiting For Key Press | True while the loading screen waits for a key press. Pure node. See [Waiting for a key press](/docfiles/concepts/how-it-works#waiting-for-a-key-press). |
+| Continue From Loading Screen | Stops waiting for a key press. |
 | Is Loading Screen Fading Out | True while the widget fades out after the loading screen was hidden. Pure node. See [Fading out](/docfiles/concepts/how-it-works#fading-out). |
 | Add Loading Screen Watcher | Adds an object that is asked whether the loading screen should be shown. See [Watchers](/docfiles/getting_started/watchers). |
 | Remove Loading Screen Watcher | Removes a watcher. |
@@ -33,6 +41,9 @@ Bind these on the Loading Screen Manager.
 | On Pre Load Map Triggered | `Map Name` | A map started loading. |
 | On Post Load Map Triggered | | A map finished loading. |
 | On Seamless Travel Start | `Map Name` | Seamless travel started. |
+| On Loading Screen Tip Changed | `Tip` | A new tip was selected. See [Tips](/docfiles/getting_started/tips-slideshow-music#tips). |
+| On Loading Screen Status Text Changed | `Status Text` | The status text changed. |
+| On Waiting For Key Press Changed | `Is Waiting` | The loading screen started (`true`) or stopped (`false`) waiting for a key press. |
 | On Loading Progress Changed | `Progress` | The loading progress changed. See [Loading Progress](/docfiles/getting_started/progress). |
 
 ## Loading Process Task
@@ -45,6 +56,7 @@ Shows the loading screen on demand. See [Show on Demand](/docfiles/getting_start
 | Set Show Loading Screen Reason | Changes the reason of the task. |
 | Get Show Loading Screen Reason | The reason of the task. Pure node. |
 | Set Progress | Reports how far the task has come, from `0` to `1`. See [Loading Progress](/docfiles/getting_started/progress). |
+| Set Status Text | Sets a text to show the player. See [Status Text](/docfiles/getting_started/reason#status-text). |
 | Is Expired | True when the task has timed out, or its context object is gone. Pure node. |
 
 ## Loading Process Interface
@@ -54,3 +66,4 @@ Implement it on the Game State, a Player Controller, one of their components or 
 |---|---|
 | Should Show Loading Screen | Return true to show the loading screen. Set **Out Debug Reason** to say why. |
 | Get Loading Progress | Return true and set **Out Progress** to a value from `0` to `1` to report progress. Return false to not be counted. |
+| Get Loading Status Text | Return true and set **Out Status Text** to report a text to show the player. |

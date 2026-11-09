@@ -14,6 +14,8 @@ description: Create a loading screen widget and tell the loading screen when to 
 
 ![Set the widget in Project Settings](/img/widget.png)
 
+If you leave **Loading Screen Widget** empty, the plugin uses its [built-in loading screen](/docfiles/getting_started/built-in-loading-screen), with ready-made layouts, spinners and color themes.
+
 ## Automatic Loading Screen Events
 The loading screen triggers automatically for these game events:
 

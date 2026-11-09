@@ -7,17 +7,17 @@ description: Answers to common questions and problems with the CommonLoadingScre
 # FAQ & Troubleshooting
 
 ## The loading screen never goes away
-Something is still asking for it. Turn on **Log Loading Screen Reason Every Frame** in Project Settings, or run `CommonLoadingScreen.LogLoadingScreenReasonEveryFrame 1` in the console, and the log shows the reason every frame. You can also show the reason in your widget, see [Displaying Reason](/docfiles/getting_started/reason).
+Something is still asking for it. Turn on **Log Reason Every Frame** in Project Settings, or run `CommonLoadingScreen.LogLoadingScreenReasonEveryFrame 1` in the console, and the log shows the reason every frame. You can also show the reason in your widget, see [Displaying Reason](/docfiles/getting_started/reason).
 
 Common causes:
 - A **Should Show Loading Screen** function that still returns true.
 - A task from **Create Loading Screen Process Task** that was never unregistered. The task keeps the loading screen up until you call **Unregister** on it. Set **Timeout Seconds** or **Unregister With Context Object** on the node to make it stop by itself, see [Show on Demand](/docfiles/getting_started/on-demand#making-the-task-stop-by-itself).
-- **Minimum Loading Screen Display Time** or **Show Loading Screen Additional Secs** is set high.
-- **Force Loading Screen Visible** is on in Project Settings.
+- **Minimum Display Time** or **Additional Hold Time** is set high.
+- **Force Visible** is on in Project Settings.
 - No local Player Controller exists yet. The loading screen stays up until at least one does, or until all of them do in split screen.
 
 ## I only see a spinning throbber instead of my widget
-The plugin could not load the **Loading Screen Widget** set in Project Settings, and falls back to a throbber. Check that the widget is set and that it is included in your packaged build. The log shows `Failed to load the loading screen widget`.
+The plugin could not load the **Loading Screen Widget** set in Project Settings, and falls back to a throbber. Check that it is included in your packaged build. The log shows `Failed to load the loading screen widget`.
 
 ## My widget freezes while the map loads
 Loading a map blocks the game thread, so the widget can't animate. Turn on **Use Movie Player During Load Map** in Project Settings to keep it animating. See [Keeping the widget animated](/docfiles/concepts/how-it-works#keeping-the-widget-animated-while-a-map-loads).
@@ -27,13 +27,13 @@ Yes, in all builds except Shipping. The console keys are not blocked, and neithe
 
 ## The loading screen behaves differently in the editor
 The loading screen works in PIE, with a few differences:
-- The extra hold time only applies when **Show Loading Screen Additional Secs Even in Editor** is on. It is on by default.
+- The extra hold time only applies when **Hold Time Even in Editor** is on. It is on by default.
 - Input is not blocked while the loading screen is shown.
 - The splash screen is never shown. Test it in a packaged or standalone game.
 - **Use Movie Player During Load Map** has no effect.
 
 ## The splash screen does not show
-- Check that **Disable Splash Loading Screen** is off.
+- Check that **Disable Splash Screen** is off.
 - The splash screen is only shown in a packaged or standalone game, never in the editor.
 - With the **IMAGE** type, check that the image is a Texture 2D. The plugin's default image is used if none is set.
 
@@ -41,10 +41,10 @@ The loading screen works in PIE, with a few differences:
 Add the map to **Blocked Maps** in Project Settings, or add its name to **Blocked Map Names**. In **Blocked Map Names**, use the map's asset name, for example `MainMenu`, not the full path.
 
 ## Can I use a different loading screen for a specific map?
-Yes. Add the map to **Map Overrides** in Project Settings and set the widget, the movies or both. See [Map Overrides](/docfiles/reference/settings#map-overrides).
+Yes. Add the map to **Map Overrides** in Project Settings and set the widget, movies, tips, images or music you want for it. See [Map Overrides](/docfiles/reference/settings#map-overrides).
 
 ## The loading screen flickers on short loads
-Set **Minimum Loading Screen Display Time** so the loading screen stays up for a while once shown, and **Loading Screen Fade Out Duration** to fade it out smoothly.
+Set **Minimum Display Time** so the loading screen stays up for a while once shown, and **Fade Out Duration** to fade it out smoothly.
 
 ## I get a warning about a legacy config section
 Your `DefaultGame.ini` still has settings under `[/Script/CommonLoadingScreen.CommonLoadingScreenSettings]` from an older version. Move them to `[/Script/CommonLoadingSettings.CommonLoadingScreenSettings]` and remove the old section. See [Upgrading from older versions](/docfiles/reference/settings#upgrading-from-older-versions).
